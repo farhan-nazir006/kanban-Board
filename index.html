@@ -6,9 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kanban Board</title>
   <link rel="stylesheet" href="src/output.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
-<body>
+<body class="w-full bg-blue-300">
   <div class="container w-full h-dvh font-sans flex flex-col items-start bg-blue-300 gap-5 p-10">
 
     <div class="input">
@@ -26,26 +27,40 @@
 
         <div class="box self-start bg-white w-60 p-3 rounded-xl flex flex-col gap-3 shadow-xl" id="Todo_box">
           <h4 class="font-bold text-gray-700">TO DO</h4>
-          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move" draggable="true">Design homepage
-            wireframe</p>
-          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move" draggable="true">Write project
-            requirements</p>
+          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move flex items-center justify-between"
+            draggable="true">Design homepage
+            wireframe<button class="delete_task"><i
+                class="fa-solid fa-trash cursor-pointer text-red-500"></i></button></i>
+          </p>
+          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move flex items-center justify-between"
+            draggable="true">
+            Write project
+            requirements<button class=" delete_task"><i
+                class=" fa-solid fa-trash cursor-pointer text-red-500"></i></button></p>
         </div>
 
         <div class="box self-start bg-white w-60 p-3 rounded-xl flex flex-col gap-3 shadow-xl" id="InProgress_box">
           <h4 class="font-bold text-gray-700">IN PROGRESS</h4>
-          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move" draggable="true">Developing login
-            page UI</p>
-          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move" draggable="true">Prepare app icon
-            and logo</p>
+          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move flex items-center justify-between"
+            draggable="true">Developing login
+            page UI <button class=" delete_task"><i class=" fa-solid fa-trash cursor-pointer text-red-500"></i></button>
+          </p>
+          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move flex items-center justify-between"
+            draggable="true">Prepare app icon
+            and logo<button class=" delete_task"><i class=" fa-solid fa-trash cursor-pointer text-red-500"></i></button>
+          </p>
         </div>
 
         <div class="box self-start bg-white w-60 p-3 rounded-xl flex flex-col gap-3 shadow-xl" id="Completed_box">
           <h4 class="font-bold text-gray-700">COMPLETED</h4>
-          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move" draggable="true">Developing login
-            page UI</p>
-          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move" draggable="true">initialized project
-            structureI</p>
+          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move flex items-center justify-between"
+            draggable="true">Developing login
+            page UI <button class=" delete_task"><i class=" fa-solid fa-trash cursor-pointer text-red-500"></i></button>
+          </p>
+          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move flex items-center justify-between"
+            draggable="true">initialized project
+            structureI<button class=" delete_task"><i
+                class=" fa-solid fa-trash cursor-pointer text-red-500"></i></button></p>
         </div>
       </div>
 

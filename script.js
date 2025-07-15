@@ -5,7 +5,9 @@ const completedContainer = document.querySelector("#Completed_box");
 const addbtn = document.querySelector(".Add_button");
 const input = document.querySelector(".input_box");
 const notification = document.getElementById("notification");
-console.log(notification);
+const deleteBtn = document.querySelectorAll(".delete_task");
+
+
 
 
 let draggedTask = null;
@@ -25,9 +27,9 @@ let draggedTask = null;
 function createTask(tasktext) {
 
   let p = document.createElement("p");
-  p.className = "task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move";
+  p.className = "task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move flex items-center justify-between";
   p.setAttribute("draggable", "true");
-  p.innerHTML = tasktext;
+  p.innerHTML = `${tasktext}<button><i class="delete_task fa-solid fa-trash cursor-pointer text-red-500"></i></button>`;
 
   p.addEventListener("dragstart", () => {
     draggedTask = p;
@@ -38,6 +40,12 @@ function createTask(tasktext) {
     draggedTask = null;
     p.classList.remove("text-white", "bg-black");
   })
+
+  const deleteBtn = p.querySelector(".delete_task");
+  deleteBtn.addEventListener("click", () => {
+    p.remove();
+  })
+
 
   todoContainer.appendChild(p);
 }
@@ -70,6 +78,7 @@ function showNotification(message) {
 
 
 // For Local tasks 
+
 tasks.forEach(task =>
   task.addEventListener("dragstart", () => {
     draggedTask = task;
@@ -81,5 +90,12 @@ tasks.forEach(task =>
   task.addEventListener("dragend", () => {
     draggedTask = null;
     task.classList.remove("text-white", "bg-black");
+  })
+)
+
+deleteBtn.forEach(btn =>
+  btn.addEventListener("click", () => {
+    let task = btn.closest(".task");
+    task.remove();
   })
 )
