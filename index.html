@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kanban Board</title>
+  <link rel="stylesheet" href="src/output.css">
+</head>
+
+<body>
+  <div class="container w-full h-dvh font-sans flex flex-col items-start bg-blue-300 gap-5 p-10">
+
+    <div class="input">
+      <input class="input_box pt-3 pb-3 pl-5 pr-5 border border-gray-500 rounded-xl texwhi" type="text"
+        placeholder="ENTER THE TASK..." id="input_box">
+      <button
+        class="Add_button pt-3 pb-3 pl-5 pr-5 rounded-xl bg-green-500 text-white font-semibold border-0 cursor-pointer hover:bg-green-400 ml-2">ADD+</button>
+    </div>
+
+
+    <div class="boxes flex gap-5">
+
+      <div class="boxes flex gap-5 flex-wrap items-start ">
+
+        <div class="box self-start bg-white w-60 p-3 rounded-xl flex flex-col gap-3 shadow-xl" id="Todo_box">
+          <h4 class="font-bold text-gray-700">TO DO</h4>
+          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move" draggable="true">Design homepage
+            wireframe</p>
+          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move" draggable="true">Write project
+            requirements</p>
+        </div>
+
+        <div class="box self-start bg-white w-60 p-3 rounded-xl flex flex-col gap-3 shadow-xl" id="InProgress_box">
+          <h4 class="font-bold text-gray-700">IN PROGRESS</h4>
+          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move" draggable="true">Developing login
+            page UI</p>
+          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move" draggable="true">Prepare app icon
+            and logo</p>
+        </div>
+
+        <div class="box self-start bg-white w-60 p-3 rounded-xl flex flex-col gap-3 shadow-xl" id="Completed_box">
+          <h4 class="font-bold text-gray-700">COMPLETED</h4>
+          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move" draggable="true">Developing login
+            page UI</p>
+          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move" draggable="true">initialized project
+            structureI</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+
+
+
+
+
+<script src="script.js"></script>
+
+</html>
