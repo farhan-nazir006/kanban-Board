@@ -6,12 +6,9 @@ const addbtn = document.querySelector(".Add_button");
 const input = document.querySelector(".input_box");
 const notification = document.getElementById("notification");
 const deleteBtn = document.querySelectorAll(".delete_task");
-
-
-
+const editBtn = document.querySelectorAll(".edit_task");
 
 let draggedTask = null;
-
 
 // Drag and Drop in all containers
 [todoContainer, inProgressContainer, completedContainer].forEach(container => {
@@ -24,12 +21,14 @@ let draggedTask = null;
   });
 });
 
+
 function createTask(tasktext) {
 
   let p = document.createElement("p");
   p.className = "task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move flex items-center justify-between";
   p.setAttribute("draggable", "true");
-  p.innerHTML = `${tasktext}<button><i class="delete_task fa-solid fa-trash cursor-pointer text-red-500"></i></button>`;
+  p.innerHTML = `${tasktext}<button><i class="delete_task fa-solid fa-trash cursor-pointer text-red-500"></i><i
+              class="edit_task cursor-pointer text-green-500 ml-1 fa-regular fa-pen-to-square"></i></button>`;
 
   p.addEventListener("dragstart", () => {
     draggedTask = p;
@@ -41,10 +40,23 @@ function createTask(tasktext) {
     p.classList.remove("text-white", "bg-black");
   })
 
+  // delete new added task
   const deleteBtn = p.querySelector(".delete_task");
   deleteBtn.addEventListener("click", () => {
     p.remove();
   })
+
+  // edit
+
+  const editBtn = p.querySelector('.edit_task');
+  editBtn.addEventListener("click", () => {
+    let task = editBtn.closest('.task');
+    task.remove();
+    input.value = task.textContent.trim();
+    input.focus();
+    addbtn.innerHTML = "EDIT+"
+  })
+  addbtn.innerHTML = "ADD+"
 
 
   todoContainer.appendChild(p);
@@ -67,7 +79,6 @@ addbtn.addEventListener("click", () => {
 
 function showNotification(message) {
   notification.innerHTML = message;
-  console.log(message);
 
   notification.classList.remove('hidden');
 
@@ -99,3 +110,15 @@ deleteBtn.forEach(btn =>
     task.remove();
   })
 )
+
+editBtn.forEach(btn =>
+  btn.addEventListener("click", () => {
+    let task = btn.closest(".task");
+    task.remove();
+    input.value = task.textContent.trim();
+    input.focus();
+    addbtn.innerHTML = "EDIT+"
+  })
+)
+
+
