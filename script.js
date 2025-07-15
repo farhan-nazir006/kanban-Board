@@ -9,6 +9,7 @@ const deleteBtn = document.querySelectorAll(".delete_task");
 const editBtn = document.querySelectorAll(".edit_task");
 
 let draggedTask = null;
+let todos = [];
 
 // Drag and Drop in all containers
 [todoContainer, inProgressContainer, completedContainer].forEach(container => {
@@ -44,6 +45,7 @@ function createTask(tasktext) {
   const deleteBtn = p.querySelector(".delete_task");
   deleteBtn.addEventListener("click", () => {
     p.remove();
+    removeTaskFromLocalStorage(tasktext);
   })
 
   // edit
@@ -70,6 +72,7 @@ addbtn.addEventListener("click", () => {
   }
 
   createTask(tasktext);
+  savedTasks(tasktext);
 
   input.value = "";
   input.focus();
@@ -87,15 +90,35 @@ function showNotification(message) {
   }, 2000)
 }
 
+// Local Storage
+function savedTasks(tasktext) {
+  todos.push(tasktext);
+  localStorage.setItem("todosTasks", JSON.stringify(todos));
+}
+
+function removeTaskFromLocalStorage(tasktext) {
+  let allsavedTask = JSON.parse(localStorage.getItem("todosTasks")) || [];
+
+  allsavedTask = allsavedTask.filter(task => task !== tasktext);
+  localStorage.setItem("todosTasks", JSON.stringify(allsavedTask));
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const savedTasks = JSON.parse(localStorage.getItem("todosTasks")) || [];
+  savedTasks.forEach(task => {
+    createTask(task);
+  })
+
+})
 
 // For Local tasks 
-
 tasks.forEach(task =>
   task.addEventListener("dragstart", () => {
     draggedTask = task;
     task.classList.add("rounded-xl", "text-white", "bg-black");
   })
 )
+
 
 tasks.forEach(task =>
   task.addEventListener("dragend", () => {
