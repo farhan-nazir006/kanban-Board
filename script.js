@@ -4,6 +4,9 @@ const inProgressContainer = document.querySelector("#InProgress_box");
 const completedContainer = document.querySelector("#Completed_box");
 const addbtn = document.querySelector(".Add_button");
 const input = document.querySelector(".input_box");
+const notification = document.getElementById("notification");
+console.log(notification);
+
 
 let draggedTask = null;
 
@@ -42,7 +45,7 @@ function createTask(tasktext) {
 addbtn.addEventListener("click", () => {
   let tasktext = input.value.trim();
   if (tasktext == "") {
-    alert("PLEASE ENTER THE TAX")
+    showNotification("⚠️ Please enter the task!");
     return;
   }
 
@@ -53,6 +56,17 @@ addbtn.addEventListener("click", () => {
 
 })
 
+
+function showNotification(message) {
+  notification.innerHTML = message;
+  console.log(message);
+
+  notification.classList.remove('hidden');
+
+  setTimeout(() => {
+    notification.classList.add('hidden');
+  }, 2000)
+}
 
 
 // For Local tasks 
