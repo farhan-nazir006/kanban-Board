@@ -17,72 +17,51 @@
       <input class="input_box pt-3 pb-3 pl-5 pr-5 border border-gray-500 rounded-xl texwhi" type="text"
         placeholder="ENTER THE TASK..." id="input_box">
       <button
-        class="Add_button pt-3 pb-3 pl-5 pr-5 rounded-xl bg-green-500 text-white font-semibold border-0 cursor-pointer hover:bg-green-400 ml-2">ADD+</button>
+        class="Add_task pt-3 pb-3 pl-5 pr-5 rounded-xl bg-green-500 text-white font-semibold border-0 cursor-pointer hover:bg-green-400 hover:-translate-y-1 transition-all drop-shadow-blue-200 ml-2">ADD
+        TASK+</button>
+      <button
+        class="Add_Card pt-3 pb-3 pl-5 pr-5 rounded-xl bg-blue-500 text-white font-semibold border-0 cursor-pointer hover:bg-blue-400 hover:-translate-y-1 transition-all drop-shadow-blue-200 ml-2">ADD
+        CARD+</button>
       <div id="notification" class="text-red-600 font-semibold mt-2"></div>
     </div>
 
 
     <div class="boxes flex gap-5">
 
-      <div class="boxes flex gap-5 flex-wrap items-start ">
+      <div class="cardsContainer flex gap-5 flex-wrap items-start ">
 
         <div
           class="box self-start bg-white w-60 p-3 rounded-xl flex flex-col gap-3 shadow-xl hover:-translate-y-2 transition-all duration-300"
           draggable="true" id="Todo_box">
-          <h4 class="font-bold text-gray-700">TO DO</h4>
+          <h4 class="font-bold text-gray-700">Todo Card</h4>
           <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move flex items-center justify-between"
-            draggable="true">Design homepage wireframe
+            draggable="true">Make strusture of page use html
             <button class="delete_task"><i class="fa-solid fa-trash cursor-pointer text-red-500"></i></button><i
               class="edit_task cursor-pointer text-green-500 ml-1 fa-regular fa-pen-to-square"></i>
           </p>
           <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move flex items-center justify-between"
-            draggable="true">Write project requirements
+            draggable="true">Use tailwindcli for styles
+            <button class="delete_task"><i class="fa-solid fa-trash cursor-pointer text-red-500"></i></button><i
+              class="edit_task cursor-pointer text-green-500 ml-1 fa-regular fa-pen-to-square"></i>
+          </p>
+          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move flex items-center justify-between"
+            draggable="true">Use javascript for adding dynamic funtionality like click's on buttons
+            <button class="delete_task"><i class="fa-solid fa-trash cursor-pointer text-red-500"></i></button><i
+              class="edit_task cursor-pointer text-green-500 ml-1 fa-regular fa-pen-to-square"></i>
+          </p>
+          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move flex items-center justify-between"
+            draggable="true">Use eye cathcing color pallate and make everything responsive
             <button class=" delete_task"><i class=" fa-solid fa-trash cursor-pointer text-red-500"></i></button><i
               class="edit_task cursor-pointer text-green-500 ml-1 fa-regular fa-pen-to-square"></i>
           </p>
         </div>
 
-        <div
-          class="box self-start bg-white w-60 p-3 rounded-xl flex flex-col gap-3 shadow-xl hover:-translate-y-2 transition-all duration-300"
-          id="InProgress_box" draggable="true">
-          <h4 class="font-bold text-gray-700 ">IN PROGRESS</h4>
-          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move flex items-center justify-between"
-            draggable="true">Developing login page UI
-            <button class=" delete_task"><i class=" fa-solid fa-trash cursor-pointer text-red-500"></i></button><i
-              class="edit_task cursor-pointer text-green-500 ml-1 fa-regular fa-pen-to-square"></i>
-          </p>
-          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move flex items-center justify-between"
-            draggable="true">Prepare app icon and logo
-            <button class=" delete_task"><i class=" fa-solid fa-trash cursor-pointer text-red-500"></i></button><i
-              class="edit_task cursor-pointer text-green-500 ml-1 fa-regular fa-pen-to-square"></i>
-          </p>
-        </div>
-
-        <div
-          class="box self-start bg-white w-60 p-3 rounded-xl flex flex-col gap-3 shadow-xl hover:-translate-y-2 transition-all duration-300"
-          id="Completed_box" draggable="true">
-          <h4 class="font-bold text-gray-700">COMPLETED</h4>
-          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move flex items-center justify-between"
-            draggable="true">Developing login page UI
-            <button class=" delete_task"><i class=" fa-solid fa-trash cursor-pointer text-red-500"></i></button><i
-              class="edit_task cursor-pointer text-green-500 ml-1 fa-regular fa-pen-to-square"></i>
-          </p>
-          <p class="task text-gray-600 w-full shadow-xl rounded-xl p-3 cursor-move flex items-center justify-between"
-            draggable="true">initialized project structureI
-            <button class=" delete_task"><i class=" fa-solid fa-trash cursor-pointer text-red-500"></i></button><i
-              class="edit_task cursor-pointer text-green-500 ml-1 fa-regular fa-pen-to-square"></i>
-          </p>
-        </div>
       </div>
 
     </div>
 
   </div>
 </body>
-
-
-
-
 
 <script src="script.js"></script>
 
