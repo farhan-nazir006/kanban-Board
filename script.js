@@ -2,26 +2,17 @@ const tasks = document.querySelectorAll(".task");
 const todoContainer = document.querySelector("#Todo_box");
 const inProgressContainer = document.querySelector("#InProgress_box");
 const completedContainer = document.querySelector("#Completed_box");
-const addbtn = document.querySelector(".Add_button");
+const addTaskbtn = document.querySelector(".Add_task");
+const addCardbtn = document.querySelector(".Add_Card");
 const input = document.querySelector(".input_box");
 const notification = document.getElementById("notification");
 const deleteBtn = document.querySelectorAll(".delete_task");
 const editBtn = document.querySelectorAll(".edit_task");
-
+const allCardsContainer = document.querySelectorAll(".cardsContainer");
 
 let draggedTask = null;
 let todos = [];
 
-// Drag and Drop in all containers
-[todoContainer, inProgressContainer, completedContainer].forEach(container => {
-  container.addEventListener("dragover", (e) => {
-    e.preventDefault();
-  });
-
-  container.addEventListener("drop", () => {
-    container.appendChild(draggedTask);
-  });
-});
 
 function createTask(tasktext) {
 
@@ -56,15 +47,45 @@ function createTask(tasktext) {
     task.remove();
     input.value = task.textContent.trim();
     input.focus();
-    addbtn.innerHTML = "EDIT+"
+    addTaskbtn.innerHTML = "EDIT+"
   })
-  addbtn.innerHTML = "ADD+"
+  addTaskbtn.innerHTML = "ADD TASK+"
 
 
   todoContainer.appendChild(p);
 }
 
-addbtn.addEventListener("click", () => {
+// Add card funtion
+function createCard(cardtext) {
+  let div = document.createElement("div");
+  div.className = "box self-start bg-white w-60 p-3 rounded-xl flex flex-col gap-3 shadow-xl hover:-translate-y-2 transition-all duration-300";
+  div.setAttribute("draggable", "true");
+  div.innerHTML = `<h4 class="font-bold text-gray-700">${cardtext}</h4>`;
+
+  allCardsContainer.forEach(card => {
+    card.appendChild(div);
+  })
+
+
+  div.addEventListener("dragover", (e) => {
+    e.preventDefault();
+  })
+
+  div.addEventListener("drop", () => {
+    div.appendChild(draggedTask);
+  });
+}
+
+// Drag and Drop in Todo container
+todoContainer.addEventListener("dragover", (e) => {
+  e.preventDefault();
+});
+
+todoContainer.addEventListener("drop", () => {
+  todoContainer.appendChild(draggedTask);
+});
+
+addTaskbtn.addEventListener("click", () => {
   let tasktext = input.value.trim();
   if (tasktext == "") {
     showNotification("⚠️ Please enter the task!");
@@ -77,6 +98,20 @@ addbtn.addEventListener("click", () => {
   input.value = "";
   input.focus();
 
+})
+
+addCardbtn.addEventListener("click", () => {
+  let cardtext = input.value.trim();
+
+  if (cardtext == "") {
+    showNotification("⚠️ Please enter the Card name!");
+    return;
+  }
+
+  createCard(cardtext);
+
+  input.value = "";
+  input.focus();
 })
 
 function showNotification(message) {
@@ -137,7 +172,7 @@ editBtn.forEach(btn =>
     task.remove();
     input.value = task.textContent.trim();
     input.focus();
-    addbtn.innerHTML = "EDIT+"
+    addTaskbtn.innerHTML = "EDIT+"
   })
 )
 
