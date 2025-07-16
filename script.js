@@ -8,6 +8,7 @@ const notification = document.getElementById("notification");
 const deleteBtn = document.querySelectorAll(".delete_task");
 const editBtn = document.querySelectorAll(".edit_task");
 
+
 let draggedTask = null;
 let todos = [];
 
@@ -21,7 +22,6 @@ let todos = [];
     container.appendChild(draggedTask);
   });
 });
-
 
 function createTask(tasktext) {
 
@@ -79,7 +79,6 @@ addbtn.addEventListener("click", () => {
 
 })
 
-
 function showNotification(message) {
   notification.innerHTML = message;
 
@@ -108,7 +107,6 @@ window.addEventListener("DOMContentLoaded", () => {
   savedTasks.forEach(task => {
     createTask(task);
   })
-
 })
 
 // For Local tasks 
@@ -118,7 +116,6 @@ tasks.forEach(task =>
     task.classList.add("rounded-xl", "text-white", "bg-black");
   })
 )
-
 
 tasks.forEach(task =>
   task.addEventListener("dragend", () => {
